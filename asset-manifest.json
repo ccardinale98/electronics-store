@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/electronics-store/static/css/main.a617e044.chunk.css",
+    "main.js": "/electronics-store/static/js/main.5fa53eb3.chunk.js",
+    "main.js.map": "/electronics-store/static/js/main.5fa53eb3.chunk.js.map",
+    "runtime-main.js": "/electronics-store/static/js/runtime-main.75bcd207.js",
+    "runtime-main.js.map": "/electronics-store/static/js/runtime-main.75bcd207.js.map",
+    "static/js/2.913fe070.chunk.js": "/electronics-store/static/js/2.913fe070.chunk.js",
+    "static/js/2.913fe070.chunk.js.map": "/electronics-store/static/js/2.913fe070.chunk.js.map",
+    "static/js/3.b257f125.chunk.js": "/electronics-store/static/js/3.b257f125.chunk.js",
+    "static/js/3.b257f125.chunk.js.map": "/electronics-store/static/js/3.b257f125.chunk.js.map",
+    "index.html": "/electronics-store/index.html",
+    "static/css/main.a617e044.chunk.css.map": "/electronics-store/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.913fe070.chunk.js.LICENSE.txt": "/electronics-store/static/js/2.913fe070.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/electronics-store/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.75bcd207.js",
+    "static/js/2.913fe070.chunk.js",
+    "static/css/main.a617e044.chunk.css",
+    "static/js/main.5fa53eb3.chunk.js"
+  ]
+}
