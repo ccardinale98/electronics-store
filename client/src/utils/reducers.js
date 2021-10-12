@@ -69,6 +69,7 @@ export const reducer = (state, action) => {
       };
 
     case UPDATE_CATEGORIES:
+      console.log("UPDATE_CATEGORIES")
       return {
         ...state,
         categories: [...action.categories],
