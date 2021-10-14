@@ -92,8 +92,9 @@ function BuildMenu() {
     if (cat._id == "6166f2b2e703fd5ff689cb22") {
       document.getElementById('mb-name').innerHTML = listing.name
       document.getElementById('mb-price').innerHTML = listing.price
-      
-      mb.unshift(listing)
+      document.getElementById('mb-id').innerHTML = listing._id
+      document.getElementById('mb-image').innerHTML = listing.image
+      document.getElementById('mb-quant').innerHTML = listing.quantity
       
       priceUpdate();
     } else if (cat._id == "6166f2b2e703fd5ff689cb23") {
@@ -159,10 +160,39 @@ function BuildMenu() {
   }
 
   const addToCart = () => {
-    var items = [];
-    console.log(mb)
-    items.concat(mb[0], cpu[0], ram[0], cs[0], stor[0], gpu[0], psu[0])
-    console.log(items)
+    var box = document.getElementsByClassName("build-box")
+    for (var i = 0; i < box.length; i++) {
+      const item = {
+        name: box[i].childNodes[1].innerHTML,
+        price: parseInt(box[i].childNodes[2].innerHTML),
+        _id: box[i].childNodes[3].innerHTML,
+        quantity: parseInt(box[i].childNodes[4].innerHTML),
+        image: box[i].childNodes[5].innerHTML
+      }
+      console.log(item)
+      
+      if (item.name !== "") {
+        const itemInCart = cart.find((cartItem) => cartItem._id === item._id)
+        
+        if (itemInCart) {
+          dispatch({
+            type: UPDATE_CART_QUANTITY,
+            _id: item._id,
+            purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+          });
+          idbPromise('cart', 'put', {
+            ...itemInCart,
+            purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+          });
+        } else {
+          dispatch({
+            type: ADD_TO_CART,
+            product: { ...item, purchaseQuantity: 1 }
+          });
+          idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+        }
+      }
+    }
     // for (var i = 0; i < items.length; i++) {
     //   if (items[i] !== undefined) {
     //     const {
