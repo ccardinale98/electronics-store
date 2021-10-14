@@ -124,12 +124,8 @@ function BuildMenu() {
     document.getElementById("choose-box").hidden = true;
   }
 
-  function printListingName(arr) {
-    console.log(arr)
-    if (arr.length !== 0) {
-      console.log(arr[0].name)
-      return arr[0].name
-    }
+  function showTotal(cost) {
+    return "$" + cost
   }
 
   return (
@@ -186,7 +182,7 @@ function BuildMenu() {
           {/* total price div */}
           <div id="total-box">
             <h3>Total Build Cost</h3>
-            <p></p>
+            <p>{showTotal(price)}</p>
             <button>Add To Cart</button>
           </div>
         </div>
