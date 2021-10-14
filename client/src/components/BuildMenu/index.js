@@ -55,12 +55,14 @@ function BuildMenu() {
     }
   }, [categoryData, loading, dispatch]);
 
+  var mb = [];
   var cpu = [];
   var gpu = [];
   var cs = [];
   var psu = [];
   var ram = [];
   var stor = [];
+  var price = 0;
 
   const ShowCategory = (id) => {
     console.log(id)
@@ -91,24 +93,31 @@ function BuildMenu() {
     if (cat._id == "6166f2b2e703fd5ff689cb22") {
       document.getElementById('mb-name').innerHTML = listing.name
       document.getElementById('mb-price').innerHTML = "$" + listing.price
+      mb.unshift(listing)
     } else if (cat._id == "6166f2b2e703fd5ff689cb23") {
       document.getElementById('cpu-name').innerHTML = listing.name
       document.getElementById('cpu-price').innerHTML = "$" + listing.price
+      cpu.unshift(listing)
     } else if (cat._id == "6166f2b2e703fd5ff689cb24") {
       document.getElementById('gpu-name').innerHTML = listing.name
       document.getElementById('gpu-price').innerHTML = "$" + listing.price
+      gpu.unshift(listing)
     } else if (cat._id == "6166f2b2e703fd5ff689cb25") {
       document.getElementById('case-name').innerHTML = listing.name
       document.getElementById('case-price').innerHTML = "$" + listing.price
+      cs.unshift(listing)
     } else if (cat._id == "6166f2b2e703fd5ff689cb26") {
       document.getElementById('psu-name').innerHTML = listing.name
       document.getElementById('psu-price').innerHTML = "$" + listing.price
+      psu.unshift(listing)
     } else if (cat._id == "6166f2b2e703fd5ff689cb27") {
       document.getElementById('stor-name').innerHTML = listing.name
       document.getElementById('stor-price').innerHTML = "$" + listing.price
+      stor.unshift(listing)
     } else if (cat._id == "6166f2b2e703fd5ff689cb28") {
       document.getElementById('ram-name').innerHTML = listing.name
       document.getElementById('ram-price').innerHTML = "$" + listing.price
+      ram.unshift(listing)
     }
 
     document.getElementById("shown").hidden = false;
