@@ -7,7 +7,6 @@ import {
 } from "../../utils/actions";
 import { QUERY_CATEGORIES } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
-import ProductItem from '../ProductItem';
 import spinner from '../../assets/spinner.gif';
 import { Link } from "react-router-dom";
 import { QUERY_PRODUCTS } from '../../utils/queries';
@@ -62,7 +61,7 @@ function BuildMenu() {
   var psu = [];
   var ram = [];
   var stor = [];
-  var price = 0;
+  var price;
 
   const ShowCategory = (id) => {
     console.log(id)
@@ -92,40 +91,71 @@ function BuildMenu() {
     console.log(listing)
     if (cat._id == "6166f2b2e703fd5ff689cb22") {
       document.getElementById('mb-name').innerHTML = listing.name
-      document.getElementById('mb-price').innerHTML = "$" + listing.price
+      document.getElementById('mb-price').innerHTML = listing.price
+      
       mb.unshift(listing)
+      
+      priceUpdate();
     } else if (cat._id == "6166f2b2e703fd5ff689cb23") {
       document.getElementById('cpu-name').innerHTML = listing.name
-      document.getElementById('cpu-price').innerHTML = "$" + listing.price
+      document.getElementById('cpu-price').innerHTML = listing.price
+      
       cpu.unshift(listing)
+
+      priceUpdate();
     } else if (cat._id == "6166f2b2e703fd5ff689cb24") {
       document.getElementById('gpu-name').innerHTML = listing.name
-      document.getElementById('gpu-price').innerHTML = "$" + listing.price
+      document.getElementById('gpu-price').innerHTML = listing.price
+      
       gpu.unshift(listing)
+
+      priceUpdate();
     } else if (cat._id == "6166f2b2e703fd5ff689cb25") {
       document.getElementById('case-name').innerHTML = listing.name
-      document.getElementById('case-price').innerHTML = "$" + listing.price
+      document.getElementById('case-price').innerHTML = listing.price
+      
       cs.unshift(listing)
+
+      priceUpdate();
     } else if (cat._id == "6166f2b2e703fd5ff689cb26") {
       document.getElementById('psu-name').innerHTML = listing.name
-      document.getElementById('psu-price').innerHTML = "$" + listing.price
+      document.getElementById('psu-price').innerHTML = listing.price
+      
       psu.unshift(listing)
+
+      priceUpdate();
     } else if (cat._id == "6166f2b2e703fd5ff689cb27") {
       document.getElementById('stor-name').innerHTML = listing.name
-      document.getElementById('stor-price').innerHTML = "$" + listing.price
+      document.getElementById('stor-price').innerHTML = listing.price
+      
       stor.unshift(listing)
+
+      priceUpdate();
     } else if (cat._id == "6166f2b2e703fd5ff689cb28") {
       document.getElementById('ram-name').innerHTML = listing.name
-      document.getElementById('ram-price').innerHTML = "$" + listing.price
+      document.getElementById('ram-price').innerHTML = listing.price
+      
       ram.unshift(listing)
+
+      priceUpdate();
     }
 
     document.getElementById("shown").hidden = false;
     document.getElementById("choose-box").hidden = true;
   }
 
-  function showTotal(cost) {
-    return "$" + cost
+  function priceUpdate() {
+    var totEl = document.getElementById("total-cost")
+
+    var mbsum = parseInt(document.getElementById('mb-price').innerHTML)
+    var cpusum = parseInt(document.getElementById('cpu-price').innerHTML)
+    var ramsum = parseInt(document.getElementById('ram-price').innerHTML)
+    var casesum = parseInt(document.getElementById('case-price').innerHTML)
+    var gpusum = parseInt(document.getElementById('gpu-price').innerHTML)
+    var psusum = parseInt(document.getElementById('psu-price').innerHTML)
+    var storsum = parseInt(document.getElementById('stor-price').innerHTML)
+    
+    totEl.innerHTML = mbsum + cpusum + ramsum + casesum + gpusum + psusum + storsum
   }
 
   return (
@@ -138,43 +168,43 @@ function BuildMenu() {
           <div id="cpu-build-box" className="build-box">
             <p>CPU:</p>
             <p id="cpu-name"></p>
-            <p id="cpu-price"></p>
+            <p id="cpu-price">0</p>
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb23")}>Search</button>
           </div>
           <div id="mb-build-box" className="build-box">
             <p>Motherboard:</p>
             <p id="mb-name"></p>
-            <p id="mb-price"></p>
+            <p id="mb-price">0</p>
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb22")}>Search</button>
           </div>
           <div id="gpu-build-box" className="build-box">
             <p>GPU:</p>
             <p id="gpu-name"></p>
-            <p id="gpu-price"></p>
+            <p id="gpu-price">0</p>
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb24")}>Search</button>
           </div>
           <div id="ram-build-box" className="build-box">
             <p>RAM:</p>
             <p id="ram-name"></p>
-            <p id="ram-price"></p>
+            <p id="ram-price">0</p>
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb28")}>Search</button>
           </div>
           <div id="psu-build-box" className="build-box">
             <p>Power Supply:</p>
             <p id="psu-name"></p>
-            <p id="psu-price"></p>
+            <p id="psu-price">0</p>
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb26")}>Search</button>
           </div>
           <div id="case-build-box" className="build-box">
             <p>Case:</p>
             <p id="case-name"></p>
-            <p id="case-price"></p>
+            <p id="case-price">0</p>
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb25")}>Search</button>
           </div>
           <div id="stor-build-box" className="build-box">
             <p>Storage:</p>
             <p id="stor-name"></p>
-            <p id="stor-price"></p>
+            <p id="stor-price">0</p>
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb27")}>Search</button>
           </div>
         </div>
@@ -182,7 +212,7 @@ function BuildMenu() {
           {/* total price div */}
           <div id="total-box">
             <h3>Total Build Cost</h3>
-            <p>{showTotal(price)}</p>
+            <p id="total-cost">0</p>
             <button>Add To Cart</button>
           </div>
         </div>
