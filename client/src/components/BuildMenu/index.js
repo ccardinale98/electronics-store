@@ -11,11 +11,12 @@ import spinner from '../../assets/spinner.gif';
 import { Link } from "react-router-dom";
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import { UPDATE_PRODUCTS } from '../../utils/actions';
+import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 
 function BuildMenu() {
   const [state, dispatch] = useStoreContext();
 
-  const { categories, currentCategory } = state;
+  const { categories, currentCategory, cart } = state;
 
   const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
 
@@ -61,7 +62,6 @@ function BuildMenu() {
   var psu = [];
   var ram = [];
   var stor = [];
-  var price;
 
   const ShowCategory = (id) => {
     console.log(id)
@@ -158,6 +158,42 @@ function BuildMenu() {
     totEl.innerHTML = mbsum + cpusum + ramsum + casesum + gpusum + psusum + storsum
   }
 
+  const addToCart = () => {
+    var items = [];
+    console.log(mb)
+    items.concat(mb[0], cpu[0], ram[0], cs[0], stor[0], gpu[0], psu[0])
+    console.log(items)
+    // for (var i = 0; i < items.length; i++) {
+    //   if (items[i] !== undefined) {
+    //     const {
+    //       image,
+    //       name,
+    //       _id,
+    //       price,
+    //       quantity
+    //     } = items[i];
+    //     const itemInCart = cart.find((cartItem) => cartItem._id === _id)
+    //     if (itemInCart) {
+    //       dispatch({
+    //         type: UPDATE_CART_QUANTITY,
+    //         _id: _id,
+    //         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+    //       });
+    //       idbPromise('cart', 'put', {
+    //         ...itemInCart,
+    //         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+    //       });
+    //     } else {
+    //       dispatch({
+    //         type: ADD_TO_CART,
+    //         product: { ...items[i], purchaseQuantity: 1 }
+    //       });
+    //       idbPromise('cart', 'put', { ...items[i], purchaseQuantity: 1 });
+    //     }
+    //   }
+    // }
+  }
+
   return (
     <div>
       <div className="container row" id="shown" hidden={false}>
@@ -166,45 +202,66 @@ function BuildMenu() {
           <h2>Build your own PC:</h2>
           {/* pick from each category */}
           <div id="cpu-build-box" className="build-box">
-            <p>CPU:</p>
+            <p class="build-cat-name">CPU:</p>
             <p id="cpu-name"></p>
             <p id="cpu-price">0</p>
+            <p id="cpu-id" hidden={true}></p>
+            <p id="cpu-quant" hidden={true}></p>
+            <p id="cpu-image" hidden={true}></p>
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb23")}>Search</button>
           </div>
           <div id="mb-build-box" className="build-box">
-            <p>Motherboard:</p>
+            <p class="build-cat-name">Motherboard:</p>
             <p id="mb-name"></p>
             <p id="mb-price">0</p>
+            <p id="mb-id" hidden={true}></p>
+            <p id="mb-quant" hidden={true}></p>
+            <p id="mb-image" hidden={true}></p>
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb22")}>Search</button>
           </div>
           <div id="gpu-build-box" className="build-box">
-            <p>GPU:</p>
+            <p class="build-cat-name">GPU:</p>
             <p id="gpu-name"></p>
             <p id="gpu-price">0</p>
+            <p id="gpu-id" hidden={true}></p>
+            <p id="gpu-quant" hidden={true}></p>
+            <p id="gpu-image" hidden={true}></p>
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb24")}>Search</button>
           </div>
           <div id="ram-build-box" className="build-box">
-            <p>RAM:</p>
+            <p class="build-cat-name">RAM:</p>
             <p id="ram-name"></p>
             <p id="ram-price">0</p>
+            <p id="ram-id" hidden={true}></p>
+            <p id="ram-quant" hidden={true}></p>
+            <p id="ram-image" hidden={true}></p>
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb28")}>Search</button>
           </div>
           <div id="psu-build-box" className="build-box">
-            <p>Power Supply:</p>
+            <p class="build-cat-name">Power Supply:</p>
             <p id="psu-name"></p>
             <p id="psu-price">0</p>
+            <p id="psu-id" hidden={true}></p>
+            <p id="psu-quant" hidden={true}></p>
+            <p id="psu-image" hidden={true}></p>
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb26")}>Search</button>
           </div>
           <div id="case-build-box" className="build-box">
-            <p>Case:</p>
+            <p class="build-cat-name">Case:</p>
             <p id="case-name"></p>
             <p id="case-price">0</p>
+            <p id="case-id" hidden={true}></p>
+            <p id="case-quant" hidden={true}></p>
+            <p id="case-image" hidden={true}></p>
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb25")}>Search</button>
           </div>
           <div id="stor-build-box" className="build-box">
-            <p>Storage:</p>
+            <p class="build-cat-name">Storage:</p>
             <p id="stor-name"></p>
             <p id="stor-price">0</p>
+            <p id="stor-id" hidden={true}></p>
+            <p id="stor-quant" hidden={true}></p>
+            <p id="stor-image" hidden={true}></p>
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb27")}>Search</button>
           </div>
         </div>
@@ -213,7 +270,7 @@ function BuildMenu() {
           <div id="total-box">
             <h3>Total Build Cost</h3>
             <p id="total-cost">0</p>
-            <button>Add To Cart</button>
+            <button onClick={() => addToCart()}>Add To Cart</button>
           </div>
         </div>
       </div>
