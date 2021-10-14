@@ -57,7 +57,6 @@ function BuildMenu() {
 
   var cpu = [];
   var gpu = [];
-  var mb = [];
   var cs = [];
   var psu = [];
   var ram = [];
@@ -89,9 +88,32 @@ function BuildMenu() {
 
   function addToList(listing, cat) {
     console.log(listing)
-    console.log(mb)
     if (cat._id == "6166f2b2e703fd5ff689cb22") {
-      mb.unshift(listing)
+      document.getElementById('mb-name').innerHTML = listing.name
+      document.getElementById('mb-price').innerHTML = "$" + listing.price
+    } else if (cat._id == "6166f2b2e703fd5ff689cb23") {
+      cpu.unshift(listing)
+    } else if (cat._id == "6166f2b2e703fd5ff689cb24") {
+      gpu.unshift(listing)
+    } else if (cat._id == "6166f2b2e703fd5ff689cb25") {
+      cs.unshift(listing)
+    } else if (cat._id == "6166f2b2e703fd5ff689cb26") {
+      psu.unshift(listing)
+    } else if (cat._id == "6166f2b2e703fd5ff689cb27") {
+      stor.unshift(listing)
+    } else if (cat._id == "6166f2b2e703fd5ff689cb28") {
+      ram.unshift(listing)
+    }
+
+    document.getElementById("shown").hidden = false;
+    document.getElementById("choose-box").hidden = true;
+  }
+
+  function printListingName(arr) {
+    console.log(arr)
+    if (arr.length !== 0) {
+      console.log(arr[0].name)
+      return arr[0].name
     }
   }
 
@@ -109,34 +131,34 @@ function BuildMenu() {
           </div>
           <div id="mb-build-box" className="build-box">
             <p>Motherboard:</p>
-            <p id="mb-name">{mb[0]}</p>
-            <p id="mb-name">{mb[1]}</p>
+            <p id="mb-name"></p>
+            <p id="mb-price"></p>
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb22")}>Search</button>
           </div>
           <div id="gpu-build-box" className="build-box">
             <p>GPU:</p>
             <p id="gpu-name"></p>
-            <p id="gpu-name"></p>
+            <p id="gpu-price"></p>
           </div>
           <div id="ram-build-box" className="build-box">
             <p>RAM:</p>
             <p id="ram-name"></p>
-            <p id="ram-name"></p>
+            <p id="ram-price"></p>
           </div>
           <div id="psu-build-box" className="build-box">
             <p>Power Supply:</p>
             <p id="psu-name"></p>
-            <p id="psu-name"></p>
+            <p id="psu-price"></p>
           </div>
           <div id="case-build-box" className="build-box">
             <p>Case:</p>
             <p id="case-name"></p>
-            <p id="case-name"></p>
+            <p id="case-price"></p>
           </div>
           <div id="stor-build-box" className="build-box">
             <p>Storage:</p>
             <p id="stor-name"></p>
-            <p id="stor-name"></p>
+            <p id="stor-price"></p>
           </div>
         </div>
         <div className="col-md-5">
