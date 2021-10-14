@@ -98,8 +98,8 @@ function BuildMenu() {
       document.getElementById('gpu-name').innerHTML = listing.name
       document.getElementById('gpu-price').innerHTML = "$" + listing.price
     } else if (cat._id == "6166f2b2e703fd5ff689cb25") {
-      document.getElementById('cs-name').innerHTML = listing.name
-      document.getElementById('cs-price').innerHTML = "$" + listing.price
+      document.getElementById('case-name').innerHTML = listing.name
+      document.getElementById('case-price').innerHTML = "$" + listing.price
     } else if (cat._id == "6166f2b2e703fd5ff689cb26") {
       document.getElementById('psu-name').innerHTML = listing.name
       document.getElementById('psu-price').innerHTML = "$" + listing.price
@@ -132,8 +132,9 @@ function BuildMenu() {
           {/* pick from each category */}
           <div id="cpu-build-box" className="build-box">
             <p>CPU:</p>
-            <p id="cpu-name">i7 9900k</p>
-            <p id="cpu-price">$699.99</p>
+            <p id="cpu-name"></p>
+            <p id="cpu-price"></p>
+            <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb23")}>Search</button>
           </div>
           <div id="mb-build-box" className="build-box">
             <p>Motherboard:</p>
@@ -145,26 +146,31 @@ function BuildMenu() {
             <p>GPU:</p>
             <p id="gpu-name"></p>
             <p id="gpu-price"></p>
+            <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb24")}>Search</button>
           </div>
           <div id="ram-build-box" className="build-box">
             <p>RAM:</p>
             <p id="ram-name"></p>
             <p id="ram-price"></p>
+            <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb28")}>Search</button>
           </div>
           <div id="psu-build-box" className="build-box">
             <p>Power Supply:</p>
             <p id="psu-name"></p>
             <p id="psu-price"></p>
+            <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb26")}>Search</button>
           </div>
           <div id="case-build-box" className="build-box">
             <p>Case:</p>
             <p id="case-name"></p>
             <p id="case-price"></p>
+            <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb25")}>Search</button>
           </div>
           <div id="stor-build-box" className="build-box">
             <p>Storage:</p>
             <p id="stor-name"></p>
             <p id="stor-price"></p>
+            <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb27")}>Search</button>
           </div>
         </div>
         <div className="col-md-5">
