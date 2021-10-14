@@ -61,6 +61,7 @@ function BuildMenu() {
   var cs = [];
   var psu = [];
   var ram = [];
+  var stor = [];
 
   const ShowCategory = (id) => {
     console.log(id)
@@ -85,6 +86,10 @@ function BuildMenu() {
       (product) => product.category._id === currentCategory
     );
   }
+
+  // function addToList(listing, cat) {
+  //   if (cat == "")
+  // }
 
   return (
     <div>
@@ -123,6 +128,11 @@ function BuildMenu() {
             <p>Case:</p>
             <p id="case-name"></p>
             <p id="case-name"></p>
+          </div>
+          <div id="stor-build-box" className="build-box">
+            <p>Storage:</p>
+            <p id="stor-name"></p>
+            <p id="stor-name"></p>
           </div>
         </div>
         <div className="col-md-5">
