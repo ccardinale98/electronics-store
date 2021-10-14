@@ -92,17 +92,23 @@ function BuildMenu() {
       document.getElementById('mb-name').innerHTML = listing.name
       document.getElementById('mb-price').innerHTML = "$" + listing.price
     } else if (cat._id == "6166f2b2e703fd5ff689cb23") {
-      cpu.unshift(listing)
+      document.getElementById('cpu-name').innerHTML = listing.name
+      document.getElementById('cpu-price').innerHTML = "$" + listing.price
     } else if (cat._id == "6166f2b2e703fd5ff689cb24") {
-      gpu.unshift(listing)
+      document.getElementById('gpu-name').innerHTML = listing.name
+      document.getElementById('gpu-price').innerHTML = "$" + listing.price
     } else if (cat._id == "6166f2b2e703fd5ff689cb25") {
-      cs.unshift(listing)
+      document.getElementById('cs-name').innerHTML = listing.name
+      document.getElementById('cs-price').innerHTML = "$" + listing.price
     } else if (cat._id == "6166f2b2e703fd5ff689cb26") {
-      psu.unshift(listing)
+      document.getElementById('psu-name').innerHTML = listing.name
+      document.getElementById('psu-price').innerHTML = "$" + listing.price
     } else if (cat._id == "6166f2b2e703fd5ff689cb27") {
-      stor.unshift(listing)
+      document.getElementById('stor-name').innerHTML = listing.name
+      document.getElementById('stor-price').innerHTML = "$" + listing.price
     } else if (cat._id == "6166f2b2e703fd5ff689cb28") {
-      ram.unshift(listing)
+      document.getElementById('ram-name').innerHTML = listing.name
+      document.getElementById('ram-price').innerHTML = "$" + listing.price
     }
 
     document.getElementById("shown").hidden = false;
