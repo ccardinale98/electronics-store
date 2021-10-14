@@ -100,43 +100,49 @@ function BuildMenu() {
     } else if (cat._id == "6166f2b2e703fd5ff689cb23") {
       document.getElementById('cpu-name').innerHTML = listing.name
       document.getElementById('cpu-price').innerHTML = listing.price
-      
-      cpu.unshift(listing)
+      document.getElementById('cpu-id').innerHTML = listing._id
+      document.getElementById('cpu-image').innerHTML = listing.image
+      document.getElementById('cpu-quant').innerHTML = listing.quantity
 
       priceUpdate();
     } else if (cat._id == "6166f2b2e703fd5ff689cb24") {
       document.getElementById('gpu-name').innerHTML = listing.name
       document.getElementById('gpu-price').innerHTML = listing.price
-      
-      gpu.unshift(listing)
+      document.getElementById('gpu-id').innerHTML = listing._id
+      document.getElementById('gpu-image').innerHTML = listing.image
+      document.getElementById('gpu-quant').innerHTML = listing.quantity
 
       priceUpdate();
     } else if (cat._id == "6166f2b2e703fd5ff689cb25") {
       document.getElementById('case-name').innerHTML = listing.name
       document.getElementById('case-price').innerHTML = listing.price
-      
-      cs.unshift(listing)
+      document.getElementById('case-id').innerHTML = listing._id
+      document.getElementById('case-image').innerHTML = listing.image
+      document.getElementById('case-quant').innerHTML = listing.quantity
 
       priceUpdate();
     } else if (cat._id == "6166f2b2e703fd5ff689cb26") {
       document.getElementById('psu-name').innerHTML = listing.name
       document.getElementById('psu-price').innerHTML = listing.price
-      
-      psu.unshift(listing)
+      document.getElementById('psu-id').innerHTML = listing._id
+      document.getElementById('psu-image').innerHTML = listing.image
+      document.getElementById('psu-quant').innerHTML = listing.quantity
 
       priceUpdate();
     } else if (cat._id == "6166f2b2e703fd5ff689cb27") {
       document.getElementById('stor-name').innerHTML = listing.name
       document.getElementById('stor-price').innerHTML = listing.price
-      
-      stor.unshift(listing)
+      document.getElementById('stor-id').innerHTML = listing._id
+      document.getElementById('stor-image').innerHTML = listing.image
+      document.getElementById('stor-quant').innerHTML = listing.quantity
 
       priceUpdate();
     } else if (cat._id == "6166f2b2e703fd5ff689cb28") {
       document.getElementById('ram-name').innerHTML = listing.name
       document.getElementById('ram-price').innerHTML = listing.price
-      
-      ram.unshift(listing)
+      document.getElementById('ram-id').innerHTML = listing._id
+      document.getElementById('ram-image').innerHTML = listing.image
+      document.getElementById('ram-quant').innerHTML = listing.quantity
 
       priceUpdate();
     }
@@ -193,35 +199,6 @@ function BuildMenu() {
         }
       }
     }
-    // for (var i = 0; i < items.length; i++) {
-    //   if (items[i] !== undefined) {
-    //     const {
-    //       image,
-    //       name,
-    //       _id,
-    //       price,
-    //       quantity
-    //     } = items[i];
-    //     const itemInCart = cart.find((cartItem) => cartItem._id === _id)
-    //     if (itemInCart) {
-    //       dispatch({
-    //         type: UPDATE_CART_QUANTITY,
-    //         _id: _id,
-    //         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-    //       });
-    //       idbPromise('cart', 'put', {
-    //         ...itemInCart,
-    //         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-    //       });
-    //     } else {
-    //       dispatch({
-    //         type: ADD_TO_CART,
-    //         product: { ...items[i], purchaseQuantity: 1 }
-    //       });
-    //       idbPromise('cart', 'put', { ...items[i], purchaseQuantity: 1 });
-    //     }
-    //   }
-    // }
   }
 
   return (
