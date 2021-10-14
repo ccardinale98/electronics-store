@@ -87,9 +87,13 @@ function BuildMenu() {
     );
   }
 
-  // function addToList(listing, cat) {
-  //   if (cat == "")
-  // }
+  function addToList(listing, cat) {
+    console.log(listing)
+    console.log(mb)
+    if (cat._id == "6166f2b2e703fd5ff689cb22") {
+      mb.unshift(listing)
+    }
+  }
 
   return (
     <div>
@@ -163,7 +167,7 @@ function BuildMenu() {
                     <span>${product.price}</span>
                     </div>
                     {/* make add button att it to variables */}
-                    <button>Add</button>
+                    <button onClick={() => addToList(product, product.category)}>Add</button>
                 </div>
                 ))}
             </div>
