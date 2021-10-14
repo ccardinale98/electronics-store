@@ -55,14 +55,6 @@ function BuildMenu() {
     }
   }, [categoryData, loading, dispatch]);
 
-  var mb = [];
-  var cpu = [];
-  var gpu = [];
-  var cs = [];
-  var psu = [];
-  var ram = [];
-  var stor = [];
-
   const ShowCategory = (id) => {
     console.log(id)
     console.log(categories)
@@ -199,6 +191,16 @@ function BuildMenu() {
         }
       }
     }
+
+    document.getElementById("items-added").hidden = false
+    document.getElementById("add-cart-build").hidden = true
+
+    setTimeout(
+      function() {
+        document.getElementById("items-added").hidden = true
+        document.getElementById("add-cart-build").hidden = false
+      }, 4000
+    )
   }
 
   return (
@@ -277,7 +279,8 @@ function BuildMenu() {
           <div id="total-box">
             <h3>Total Build Cost</h3>
             <p id="total-cost">0</p>
-            <button onClick={() => addToCart()}>Add To Cart</button>
+            <button id="add-cart-build" onClick={() => addToCart()}>Add To Cart</button>
+            <p ID='items-added' hidden={true}>ITEMS ADDED TO CART</p>
           </div>
         </div>
       </div>
@@ -300,7 +303,7 @@ function BuildMenu() {
                     <span>${product.price}</span>
                     </div>
                     {/* make add button att it to variables */}
-                    <button onClick={() => addToList(product, product.category)}>Add</button>
+                    <button onClick={() => addToList(product, product.category)}>Add to Build</button>
                 </div>
                 ))}
             </div>
