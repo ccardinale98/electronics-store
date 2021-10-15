@@ -120,12 +120,11 @@ li {
 #shown {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 
 #total-div {
   padding-top: 30px;
-  padding-right: 100px
+  width: 70vw;
 }
 
 .build-box {
@@ -137,6 +136,7 @@ li {
 #total-box {
   background-color: var(--tertiary);
   color: var(--light);
+  margin: auto;
 }
 
 #build-title-main {
@@ -295,16 +295,30 @@ input:focus {
   text-align: center;
 }
 
-.choose-box {
-  border-style: solid;
+#choose-box {
   padding: 10px;
-  width: 80vw;
   height: 50vw;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  justify-content: space-between;
 }
 
 .build-cat-name {
   width: 120px;
+}
+
+.build-cat-card {
+  width: 150px;
+  margin: 25px;
+}
+
+.name-choose {
+  max-height: 100px;
+  overflow: scroll;
+}
+
+#choose-div-main {
+  width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+  text-align: center;
+  justify-content: center;
 }
