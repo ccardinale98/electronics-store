@@ -1,9 +1,9 @@
 :root {
-  --primary: #232F3E;
+  --primary: #171717;
   --secondary: #F3A847;
-  --tertiary: #B12704;
-  --light: #fafafa;
-  --dark: #272f32;
+  --tertiary: #DA0037;
+  --light: #EDEDED;
+  --dark: #444444;
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
@@ -42,6 +42,7 @@ h6 {
 
 h1 {
   font-size: 2.25rem;
+  margin-bottom: 15px;
 }
 
 h2 {
@@ -81,11 +82,68 @@ a:hover {
 
 header {
   background: var(--primary);
+  height: fit-content;
+  padding: 15px 0 0 0;
 }
 
 header a {
   color: var(--light);
 }
+
+nav {
+  background-color: var(--tertiary);
+  margin: 0;
+  padding: 3px;
+  width: 100%;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.nav-bar {
+  padding-left: 15px;
+}
+
+#store-title {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+#shown {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#total-div {
+  padding-top: 30px;
+  padding-right: 100px
+}
+
+.build-box {
+  background-color: var(--tertiary);
+  color: var(--light);
+  margin-bottom: 20px;
+}
+
+#total-box {
+  background-color: var(--tertiary);
+  color: var(--light);
+}
+
+#build-title-main {
+  color: var(--light);
+}
+
+
 
 button {
   font-size: 1rem;
@@ -96,7 +154,8 @@ button {
   outline: none;
   cursor: pointer;
   margin: 0 1px;
-  background-color: var(--secondary);
+  background-color: var(--primary);
+  color: var(--light);
 }
 
 button:hover {
@@ -135,10 +194,13 @@ input:focus {
 }
 
 .container {
-  width: 85%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: var(--dark);
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
 }
 
 .flex-row {
@@ -207,4 +269,42 @@ input:focus {
   .card {
     width: 100%;
   }
+}
+
+#build-box-div {
+  width: 40vw;
+}
+
+.build-box {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  justify-content: space-between;
+  width: 40vw;
+  border-style: solid;
+  border-radius: 10%;
+  padding: 10px;
+  padding-top: 25px;
+}
+
+#total-box {
+  border-style: solid;
+  border-radius: 10%;
+  padding: 10px;
+  width: 25vw;
+  text-align: center;
+}
+
+.choose-box {
+  border-style: solid;
+  padding: 10px;
+  width: 80vw;
+  height: 50vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.build-cat-name {
+  width: 120px;
 }
