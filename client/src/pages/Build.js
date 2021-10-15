@@ -4,8 +4,8 @@ import { Link, useParams } from 'react-router-dom';
 
 const Build = () => {
     return (
-        <div className="container">
-            <Link to="/">← Back to Products</Link>
+        <div className="container" id="build-main">
+            <Link to="/" class="back-home">Home</Link>
             <BuildMenu />
         </div>
     )

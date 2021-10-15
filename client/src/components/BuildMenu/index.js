@@ -205,10 +205,10 @@ function BuildMenu() {
 
   return (
     <div>
-      <div className="container row" id="shown" hidden={false}>
+      <div className="row" id="shown" hidden={false}>
         {/* container for grid */}
         <div id="build-box-div" className="col-md-5">
-          <h2>Build your own PC:</h2>
+          <h2 id="build-title-main">Build your own PC:</h2>
           {/* pick from each category */}
           <div id="cpu-build-box" className="build-box">
             <p class="build-cat-name">CPU:</p>
@@ -274,7 +274,7 @@ function BuildMenu() {
             <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb27")}>Search</button>
           </div>
         </div>
-        <div className="col-md-5">
+        <div className="col-md-5" id="total-div">
           {/* total price div */}
           <div id="total-box">
             <h3>Total Build Cost</h3>
@@ -284,7 +284,7 @@ function BuildMenu() {
           </div>
         </div>
       </div>
-      <div className="container" id="choose-box" hidden={true}>
+      <div className="container col-md-5" id="choose-box" hidden={true}>
         {/* box to show up for cpus/gpus/motherboards/etc. */}
         <div className="my-2">
             <h2></h2>
