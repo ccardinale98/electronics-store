@@ -1,6 +1,6 @@
 :root {
   --primary: #171717;
-  --secondary: #F3A847;
+  --secondary: #DA0037;
   --tertiary: #DA0037;
   --light: #EDEDED;
   --dark: #444444;
@@ -16,6 +16,7 @@
 html,
 body {
   min-height: 100%;
+  background-color: var(--dark);
 }
 
 body {
