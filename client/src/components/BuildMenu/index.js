@@ -288,7 +288,7 @@ function BuildMenu() {
                         <Link to={`/products/${product._id}`}>
                         <img
                             alt={product.name}
-                            src={`/images/${product.image}`}
+                            src={product.image}
                         />
                         <p className="name-choose">{product.name}</p>
                         </Link>

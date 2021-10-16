@@ -102,7 +102,7 @@ const Cart = () => {
         </div>
       ) : (
         <h3>
-          Nothin in cart.
+          Nothing in cart.
         </h3>
       )}
     </div>
