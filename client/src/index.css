@@ -323,3 +323,32 @@ input:focus {
   text-align: center;
   justify-content: center;
 }
+
+#chat-box-div {
+  width: 250px;
+  background-color: white;
+  padding: 10px;
+  height: 350px;
+  overflow: scroll;
+}
+
+#chat-box-title {
+  color: black;
+  font-size: 25px;
+  text-align: center;
+}
+
+.message {
+  color: black;
+  width: 200px;
+}
+
+.user-message {
+  text-align: end;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+#chatBox {
+  width: 200px;
+}
