@@ -89,11 +89,15 @@ function Detail() {
 
           <div class="box">
             <div>
-              
+              <img id="currentproduct-image"
+              src={`/images/${currentProduct.image}`}
+              alt={currentProduct.name} />
             </div>
 
             <div>
-              
+              <h2 id="product-name">{currentProduct.name}</h2>
+
+              <p id="product-desc">{currentProduct.description}</p>
             </div>
 
             <div>
