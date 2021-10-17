@@ -6,10 +6,55 @@ import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
+import {
+    UPDATE_CATEGORIES,
+    UPDATE_CURRENT_CATEGORY,
+  } from "../../utils/actions";
+import { QUERY_CATEGORIES } from "../../utils/queries";
+import { Link } from "react-router-dom";
 
 function Bot() {
     const [message, setMessage] = useState("");
+    const [state, dispatch] = useStoreContext();
+    const { categories, products } = state;
+    const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
+    const { data } = useQuery(QUERY_PRODUCTS);
     
+    useEffect(() => {
+        if (data) {
+          dispatch({
+            type: UPDATE_PRODUCTS,
+            products: data.products,
+          });
+          data.products.forEach((product) => {
+            idbPromise('products', 'put', product);
+          });
+        }
+      }, [data, dispatch]);
+    
+      useEffect(() => {
+        if (categoryData) {
+          dispatch({
+            type: UPDATE_CATEGORIES,
+            categories: categoryData.categories,
+          });
+          console.log(categoryData.categories);
+          categoryData.categories.forEach((category) => {
+            idbPromise("categories", "put", category);
+          });
+        } else if (!loading) {
+          console.log("useEffect", categories);
+          idbPromise("categories", "get").then((categories) => {
+            dispatch({
+              type: UPDATE_CATEGORIES,
+              categories: categories,
+            });
+          });
+        }
+      }, [categoryData, loading, dispatch]);
+
+
+
     const handleClick = async (e) => {
        const code = e.keyCode || e.which;
        
@@ -42,10 +87,36 @@ function Bot() {
             } else if (mess.includes("how are you")) {
                 botMess.innerHTML = "I am well.";
             } else if (mess.includes("category")) {
-                botMess.innerHTML = "These are the items in that category:";
-                // make if for each category (import categories)
+                console.log(categories)
+                for (var i = 0; i < categories.length; i++) {
+                    if (mess.includes(categories[i].name.toLowerCase())) {
+                        botMess.innerHTML = "Here are the " + categories[i].name + ":";
+                        
+                        var productCatListEl = document.createElement("ul");
+                        botMess.append(productCatListEl)
+
+                        var catID = categories[i]._id
+                        console.log(products)
+                        for (var p = 0; p < products.length; p++) {
+                            if (products[p].category._id == catID) {
+                                var productCatEl = document.createElement("li");
+                                productCatEl.innerHTML = products[p].name;
+                                productCatListEl.append(productCatEl);
+                            }
+                        }
+                    }
+                }
             } else if (mess.includes("tell") || mess.includes("explain")) {
-                // (import products) make if for the prodicts
+                for (var i = 0; i < products.length; i++) {
+                    var nm = products[i].name.toLowerCase();
+                    var nmSplit = nm.split(" ");
+                    console.log(nmSplit[0]);
+                    console.log(nmSplit[1]);
+                    if (mess.includes(nmSplit[0]) || mess.includes(nmSplit[1]) || mess.includes(nmSplit[2])) {
+                        console.log(nmSplit);
+                        botMess.innerHTML = "The " + products[i].name + " costs $" + products[i].price + " and there are " + products[i].quantity + " in stock.";
+                    }
+                }
             } else if (mess.includes("contact") || mess.includes("person")) {
                 botMess.append(showContact())
             } else if (mess.includes("bye") || mess.includes("goodbye")) {
@@ -98,6 +169,7 @@ function Bot() {
                 <h1 id="chat-box-title">Virtual Assistant</h1>
                 <div id="message-list-div">
                     <ul id="message-list">
+                        <li classList="bot-message message">Hi I will be your virtual assistant. What can I help with today?</li>
                     </ul>
                 </div>
                 <input id="chatBox" onChange={(e) => setMessage(e.target.value)} onKeyPress={handleClick} value={message}></input>
