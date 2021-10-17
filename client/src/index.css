@@ -148,20 +148,24 @@ li {
 }
 
 #productListTitle {
-  color: #EDEDED;
-  margin-left: 30px;
+  /* color: #EDEDED; */
+  color: #171717;
+  padding-left: 30px;
 }
 
 #productName {
-  color: #EDEDED;
+  /* color: #EDEDED; */
+  color: #171717;
 }
 
 #productStock {
-  color:#EDEDED
+  /* color: #EDEDED; */
+  color: #171717;
 }
 
 #productPrice {
-  color:#EDEDED
+  /* color: #EDEDED; */
+  color: #171717;
 }
 
 aside {
@@ -233,7 +237,7 @@ input:focus {
   width: 100%;
   margin-left: 0;
   margin-right: 0;
-  background-color: var(--dark);
+  /* background-color: var(--dark); */
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 20px;
