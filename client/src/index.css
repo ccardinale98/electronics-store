@@ -13,6 +13,18 @@
   box-sizing: border-box;
 }
 
+#product-name {
+  color: white;
+}
+
+#product-desc {
+  color: white;
+}
+
+#price {
+  color: white;
+}
+
 html,
 body {
   min-height: 100%;
