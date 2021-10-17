@@ -98,41 +98,42 @@ function Detail() {
               <h2 id="product-name">{currentProduct.name}</h2>
 
               <p id="product-desc">{currentProduct.description}</p>
-
-              <p id="price">
-                <strong>Price:</strong>${currentProduct.price}{' '}
-                <button onClick={addToCart}>Add to Cart</button>
-
-                <button disabled={!cart.find((p) => p._id === currentProduct._id)}
-                onClick={removeFromCart} > Remove from Cart </button>
-              </p>
+              <div>
+                <div id="price">
+                  <strong>Price:</strong>${currentProduct.price}{' '}
+                </div>
+                <div id="add-button">
+                  <button onClick={addToCart}>Add to Cart</button>
+                </div>
+                <div id="from-button">
+                  <button disabled={!cart.find((p) => p._id === currentProduct._id)}
+                  onClick={removeFromCart} > Remove from Cart </button>
+                </div>
+              </div>
             </div>
 
             <div>
-            <form class="comment-form">
-            <div class="fields">
-              <div class="name-form">
-                <label for="inputName">Name:</label>
-                <input type="text" placeholder="Name" required/>
-              </div>
+              <form class="comment-form">
+                <div class="fields">
+                  <div class="name-form">
+                    <label for="inputName">Name:</label>
+                    <input type="text" placeholder="Name" required/>
+                  </div>
 
-              <div class="text-form">
-                <label for="inputName">Comments:</label>
-                <textarea cols="45" rows="15" placeholder="Comment.." required></textarea>
-              </div>
+                  <div class="text-form">
+                    <label for="inputName">Comments:</label>
+                    <textarea cols="45" rows="15" placeholder="Comment.." required></textarea>
+                  </div>
 
-              <div class="button-form">
-                <button type="submit">Send message</button>
-              </div>
+                  <div class="button-form">
+                    <button type="submit">Send message</button>
+                  </div>
 
-            </div>
-          </form>
+                </div>
+              </form>
             </div>
 
           </div>
-
-
-          
 
         </div>
 
