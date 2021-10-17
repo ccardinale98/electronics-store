@@ -1,6 +1,6 @@
 :root {
   --primary: #171717;
-  --secondary: #F3A847;
+  --secondary: #DA0037;
   --tertiary: #DA0037;
   --light: #EDEDED;
   --dark: #444444;
@@ -16,6 +16,7 @@
 html,
 body {
   min-height: 100%;
+  background-color: var(--dark);
 }
 
 body {
@@ -120,12 +121,11 @@ li {
 #shown {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 
 #total-div {
   padding-top: 30px;
-  padding-right: 100px
+  width: 70vw;
 }
 
 .build-box {
@@ -137,6 +137,7 @@ li {
 #total-box {
   background-color: var(--tertiary);
   color: var(--light);
+  margin: auto;
 }
 
 #build-title-main {
@@ -339,16 +340,103 @@ input:focus {
   text-align: center;
 }
 
-.choose-box {
-  border-style: solid;
+#choose-box {
   padding: 10px;
-  width: 80vw;
   height: 50vw;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  justify-content: space-between;
 }
 
 .build-cat-name {
   width: 120px;
+}
+
+.build-cat-card {
+  width: 150px;
+  margin: 25px;
+}
+
+.name-choose {
+  max-height: 100px;
+  overflow: scroll;
+}
+
+#choose-div-main {
+  width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+  text-align: center;
+  justify-content: center;
+}
+
+#chat-box-div {
+  width: 250px;
+  background-color: white;
+  padding: 10px;
+  height: 350px;
+  border: solid;
+  border-color: #DA0037;
+}
+
+#chat-box-title {
+  color: black;
+  font-size: 25px;
+  text-align: center;
+}
+
+.message {
+  color: black;
+  width: 200px;
+}
+
+.user-message {
+  text-align: end;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+#chatBox {
+  width: 200px;
+  position: fixed;
+  bottom: 6%;
+}
+
+#chat-box-main {
+  position: fixed;
+  bottom: 1%;
+  right: 1%;
+}
+
+#message-list-div {
+  height: 70%;
+}
+
+#message-list {
+  height: 100%;
+  overflow: scroll;
+}
+
+#details-main {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+  width: fit-content;
+}
+
+#details-name {
+  color: #EDEDED;
+}
+
+#details-desc {
+  color: #EDEDED;
+  max-width: 400px;
+}
+
+#details-price {
+  color: #EDEDED;
+}
+
+#details-div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
 }

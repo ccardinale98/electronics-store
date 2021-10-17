@@ -81,7 +81,7 @@ function BuildMenu() {
 
   function addToList(listing, cat) {
     console.log(listing)
-    if (cat._id == "6166f2b2e703fd5ff689cb22") {
+    if (cat._id == categories[1]._id) {
       document.getElementById('mb-name').innerHTML = listing.name
       document.getElementById('mb-price').innerHTML = listing.price
       document.getElementById('mb-id').innerHTML = listing._id
@@ -89,7 +89,7 @@ function BuildMenu() {
       document.getElementById('mb-quant').innerHTML = listing.quantity
       
       priceUpdate();
-    } else if (cat._id == "6166f2b2e703fd5ff689cb23") {
+    } else if (cat._id == categories[2]._id) {
       document.getElementById('cpu-name').innerHTML = listing.name
       document.getElementById('cpu-price').innerHTML = listing.price
       document.getElementById('cpu-id').innerHTML = listing._id
@@ -97,7 +97,7 @@ function BuildMenu() {
       document.getElementById('cpu-quant').innerHTML = listing.quantity
 
       priceUpdate();
-    } else if (cat._id == "6166f2b2e703fd5ff689cb24") {
+    } else if (cat._id == categories[3]._id) {
       document.getElementById('gpu-name').innerHTML = listing.name
       document.getElementById('gpu-price').innerHTML = listing.price
       document.getElementById('gpu-id').innerHTML = listing._id
@@ -105,7 +105,7 @@ function BuildMenu() {
       document.getElementById('gpu-quant').innerHTML = listing.quantity
 
       priceUpdate();
-    } else if (cat._id == "6166f2b2e703fd5ff689cb25") {
+    } else if (cat._id == categories[4]._id) {
       document.getElementById('case-name').innerHTML = listing.name
       document.getElementById('case-price').innerHTML = listing.price
       document.getElementById('case-id').innerHTML = listing._id
@@ -113,7 +113,7 @@ function BuildMenu() {
       document.getElementById('case-quant').innerHTML = listing.quantity
 
       priceUpdate();
-    } else if (cat._id == "6166f2b2e703fd5ff689cb26") {
+    } else if (cat._id == categories[5]._id) {
       document.getElementById('psu-name').innerHTML = listing.name
       document.getElementById('psu-price').innerHTML = listing.price
       document.getElementById('psu-id').innerHTML = listing._id
@@ -121,7 +121,7 @@ function BuildMenu() {
       document.getElementById('psu-quant').innerHTML = listing.quantity
 
       priceUpdate();
-    } else if (cat._id == "6166f2b2e703fd5ff689cb27") {
+    } else if (cat._id == categories[6]._id) {
       document.getElementById('stor-name').innerHTML = listing.name
       document.getElementById('stor-price').innerHTML = listing.price
       document.getElementById('stor-id').innerHTML = listing._id
@@ -129,7 +129,7 @@ function BuildMenu() {
       document.getElementById('stor-quant').innerHTML = listing.quantity
 
       priceUpdate();
-    } else if (cat._id == "6166f2b2e703fd5ff689cb28") {
+    } else if (cat._id == categories[7]._id) {
       document.getElementById('ram-name').innerHTML = listing.name
       document.getElementById('ram-price').innerHTML = listing.price
       document.getElementById('ram-id').innerHTML = listing._id
@@ -147,7 +147,7 @@ function BuildMenu() {
     var totEl = document.getElementById("total-cost")
 
     var mbsum = parseInt(document.getElementById('mb-price').innerHTML)
-    var cpusum = parseInt(document.getElementById('cpu-price').innerHTML)
+    var cpusum = parseInt(document.getElementById('cpu-price').textContent)
     var ramsum = parseInt(document.getElementById('ram-price').innerHTML)
     var casesum = parseInt(document.getElementById('case-price').innerHTML)
     var gpusum = parseInt(document.getElementById('gpu-price').innerHTML)
@@ -194,18 +194,11 @@ function BuildMenu() {
 
     document.getElementById("items-added").hidden = false
     document.getElementById("add-cart-build").hidden = true
-
-    setTimeout(
-      function() {
-        document.getElementById("items-added").hidden = true
-        document.getElementById("add-cart-build").hidden = false
-      }, 4000
-    )
   }
 
   return (
     <div>
-      <div className="row" id="shown" hidden={false}>
+      <div className="row" id="shown">
         {/* container for grid */}
         <div id="build-box-div" className="col-md-5">
           <h2 id="build-title-main">Build your own PC:</h2>
@@ -217,7 +210,7 @@ function BuildMenu() {
             <p id="cpu-id" hidden={true}></p>
             <p id="cpu-quant" hidden={true}></p>
             <p id="cpu-image" hidden={true}></p>
-            <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb23")}>Search</button>
+            <button onClick={() => ShowCategory(categories[2]._id)}>Search</button>
           </div>
           <div id="mb-build-box" className="build-box">
             <p class="build-cat-name">Motherboard:</p>
@@ -226,7 +219,7 @@ function BuildMenu() {
             <p id="mb-id" hidden={true}></p>
             <p id="mb-quant" hidden={true}></p>
             <p id="mb-image" hidden={true}></p>
-            <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb22")}>Search</button>
+            <button onClick={() => ShowCategory(categories[1]._id)}>Search</button>
           </div>
           <div id="gpu-build-box" className="build-box">
             <p class="build-cat-name">GPU:</p>
@@ -235,7 +228,7 @@ function BuildMenu() {
             <p id="gpu-id" hidden={true}></p>
             <p id="gpu-quant" hidden={true}></p>
             <p id="gpu-image" hidden={true}></p>
-            <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb24")}>Search</button>
+            <button onClick={() => ShowCategory(categories[3]._id)}>Search</button>
           </div>
           <div id="ram-build-box" className="build-box">
             <p class="build-cat-name">RAM:</p>
@@ -244,7 +237,7 @@ function BuildMenu() {
             <p id="ram-id" hidden={true}></p>
             <p id="ram-quant" hidden={true}></p>
             <p id="ram-image" hidden={true}></p>
-            <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb28")}>Search</button>
+            <button onClick={() => ShowCategory(categories[7]._id)}>Search</button>
           </div>
           <div id="psu-build-box" className="build-box">
             <p class="build-cat-name">Power Supply:</p>
@@ -253,7 +246,7 @@ function BuildMenu() {
             <p id="psu-id" hidden={true}></p>
             <p id="psu-quant" hidden={true}></p>
             <p id="psu-image" hidden={true}></p>
-            <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb26")}>Search</button>
+            <button onClick={() => ShowCategory(categories[5]._id)}>Search</button>
           </div>
           <div id="case-build-box" className="build-box">
             <p class="build-cat-name">Case:</p>
@@ -262,7 +255,7 @@ function BuildMenu() {
             <p id="case-id" hidden={true}></p>
             <p id="case-quant" hidden={true}></p>
             <p id="case-image" hidden={true}></p>
-            <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb25")}>Search</button>
+            <button onClick={() => ShowCategory(categories[4]._id)}>Search</button>
           </div>
           <div id="stor-build-box" className="build-box">
             <p class="build-cat-name">Storage:</p>
@@ -271,10 +264,11 @@ function BuildMenu() {
             <p id="stor-id" hidden={true}></p>
             <p id="stor-quant" hidden={true}></p>
             <p id="stor-image" hidden={true}></p>
-            <button onClick={() => ShowCategory("6166f2b2e703fd5ff689cb27")}>Search</button>
+            <button onClick={() => ShowCategory(categories[6]._id)}>Search</button>
           </div>
         </div>
-        <div className="col-md-5" id="total-div">
+
+        <div className="col-md-7 text-align-center justify-content-center" id="total-div">
           {/* total price div */}
           <div id="total-box">
             <h3>Total Build Cost</h3>
@@ -282,33 +276,34 @@ function BuildMenu() {
             <button id="add-cart-build" onClick={() => addToCart()}>Add To Cart</button>
             <p ID='items-added' hidden={true}>ITEMS ADDED TO CART</p>
           </div>
-        </div>
-      </div>
-      <div className="container col-md-5" id="choose-box" hidden={true}>
-        {/* box to show up for cpus/gpus/motherboards/etc. */}
-        <div className="my-2">
-            <h2></h2>
-            {
-            <div className="flex-row">
-                {filterProducts().map((product) => (
-                    <div className="card px-1 py-1">
-                    <Link to={`/products/${product._id}`}>
-                    <img
-                        alt={product.name}
-                        src={`/images/${product.image}`}
-                    />
-                    <p>{product.name}</p>
-                    </Link>
-                    <div>
-                    <span>${product.price}</span>
+
+          <div className="container col-md-5" id="choose-box" hidden={true}>
+          {/* box to show up for cpus/gpus/motherboards/etc. */}
+            <div className="my-2">
+                <h2></h2>
+                {
+                <div className="flex flex-row wrap justify-content-between" id="choose-div-main">
+                    {filterProducts().map((product) => (
+                        <div className="card build-cat-card">
+                        <Link to={`/products/${product._id}`}>
+                        <img
+                            alt={product.name}
+                            src={product.image}
+                        />
+                        <p className="name-choose">{product.name}</p>
+                        </Link>
+                        <div>
+                        <span>${product.price}</span>
+                        </div>
+                        {/* make add button att it to variables */}
+                        <button onClick={() => addToList(product, product.category)}>Add to Build</button>
                     </div>
-                    {/* make add button att it to variables */}
-                    <button onClick={() => addToList(product, product.category)}>Add to Build</button>
+                    ))}
                 </div>
-                ))}
+                }
+                {loading ? <img src={spinner} alt="loading" /> : null}
             </div>
-            }
-            {loading ? <img src={spinner} alt="loading" /> : null}
+          </div>
         </div>
       </div>
     </div>
