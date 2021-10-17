@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
+import Bot from "../components/Bot";
 import Cart from '../components/Cart';
 import { useStoreContext } from '../utils/GlobalState';
 import {
@@ -85,31 +85,38 @@ function Detail() {
     <>
       {currentProduct && cart ? (
         <div className="container my-1">
-          <Link to="/">← Back to Products</Link>
+          <Link to="/">Home</Link>
 
-          <h2>{currentProduct.name}</h2>
+          <div id="details-main">
+            <div id="image-div">
+              <img
+                src={currentProduct.image}
+                alt={currentProduct.name}
+              />
+            </div>
 
-          <p>{currentProduct.description}</p>
+            <div id="details-div">
+              <h2 id="details-name">{currentProduct.name}</h2>
 
-          <p>
-            <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
-            <button
-              disabled={!cart.find((p) => p._id === currentProduct._id)}
-              onClick={removeFromCart}
-            >
-              Remove from Cart
-            </button>
-          </p>
+              <p id="details-desc">{currentProduct.description}</p>
 
-          <img
-            src={`/images/${currentProduct.image}`}
-            alt={currentProduct.name}
-          />
+              <p id="details-price">
+                <strong>Price:</strong>${currentProduct.price}{' '}
+                <button onClick={addToCart}>Add to Cart</button>
+                <button
+                  disabled={!cart.find((p) => p._id === currentProduct._id)}
+                  onClick={removeFromCart}
+                >
+                  Remove from Cart
+                </button>
+              </p>
+            </div>
+          </div>
         </div>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
       <Cart />
+      <Bot />
     </>
   );
 }
