@@ -370,3 +370,29 @@ input:focus {
   height: 100%;
   overflow: scroll;
 }
+
+#details-main {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+  width: fit-content;
+}
+
+#details-name {
+  color: #EDEDED;
+}
+
+#details-desc {
+  color: #EDEDED;
+  max-width: 400px;
+}
+
+#details-price {
+  color: #EDEDED;
+}
+
+#details-div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
