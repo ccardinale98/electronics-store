@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
+import Bot from "../components/Bot";
 import Cart from '../components/Cart';
 import { useStoreContext } from '../utils/GlobalState';
 import {
@@ -85,61 +85,39 @@ function Detail() {
     <>
       {currentProduct && cart ? (
         <div className="container my-1">
-          <Link to="/">← Back to Products</Link>
+          <Link to="/">Home</Link>
 
-          <div class="box">
-            <div>
-              <img id="currentproduct-image"
-              src={`/images/${currentProduct.image}`}
-              alt={currentProduct.name} />
+          <div id="details-main">
+            <div id="image-div">
+              <img
+                src={currentProduct.image}
+                alt={currentProduct.name}
+              />
             </div>
 
-            <div>
-              <h2 id="product-name">{currentProduct.name}</h2>
+            <div id="details-div">
+              <h2 id="details-name">{currentProduct.name}</h2>
 
-              <p id="product-desc">{currentProduct.description}</p>
-              <div>
-                <div id="price">
-                  <strong>Price:</strong>${currentProduct.price}{' '}
-                </div>
-                <div id="add-button">
-                  <button onClick={addToCart}>Add to Cart</button>
-                </div>
-                <div id="from-button">
-                  <button disabled={!cart.find((p) => p._id === currentProduct._id)}
-                  onClick={removeFromCart} > Remove from Cart </button>
-                </div>
-              </div>
+              <p id="details-desc">{currentProduct.description}</p>
+
+              <p id="details-price">
+                <strong>Price:</strong>${currentProduct.price}{' '}
+                <button onClick={addToCart}>Add to Cart</button>
+                <button
+                  disabled={!cart.find((p) => p._id === currentProduct._id)}
+                  onClick={removeFromCart}
+                >
+                  Remove from Cart
+                </button>
+              </p>
             </div>
-
-            <div>
-              <form class="comment-form">
-                <div class="fields">
-                  <div class="name-form">
-                    <label for="inputName">Name:</label>
-                    <input type="text" placeholder="Name" required/>
-                  </div>
-
-                  <div class="text-form">
-                    <label for="inputName">Comments:</label>
-                    <textarea cols="45" rows="15" placeholder="Comment.." required></textarea>
-                  </div>
-
-                  <div class="button-form">
-                    <button type="submit">Send message</button>
-                  </div>
-
-                </div>
-              </form>
-            </div>
-
           </div>
-
         </div>
 
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
       <Cart />
+      <Bot />
     </>
   );
 }
