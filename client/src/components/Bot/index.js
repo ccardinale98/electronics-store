@@ -79,16 +79,30 @@ function Bot() {
                 <button id="contact-submit">Submit</button>
             </div>
         )
-    } 
+    }
+
+    function showChat() {
+        var chatBoxEl = document.getElementById("chat-box-div")
+        chatBoxEl.hidden=false
+        if (chatBoxEl.style.display === "block") {
+            console.log("HIDDEN")
+            chatBoxEl.style.display = "none"
+        } else {
+            chatBoxEl.style.display = "block"
+        }
+    }
     
     return (
-        <div id="chat-box-div">
-            <h1 id="chat-box-title">Virtual Assistant</h1>
-            <div>
-                <ul id="message-list">
-                </ul>
+        <div id="chat-box-main">
+            <div id="chat-box-div" hidden={true}>
+                <h1 id="chat-box-title">Virtual Assistant</h1>
+                <div id="message-list-div">
+                    <ul id="message-list">
+                    </ul>
+                </div>
+                <input id="chatBox" onChange={(e) => setMessage(e.target.value)} onKeyPress={handleClick} value={message}></input>
             </div>
-            <input id="chatBox" onChange={(e) => setMessage(e.target.value)} onKeyPress={handleClick} value={message}></input>
+            <button onClick={() => showChat()}>Virtual Assistant</button>
         </div>
     )
 }
