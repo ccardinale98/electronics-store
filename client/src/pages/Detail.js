@@ -87,26 +87,26 @@ function Detail() {
         <div className="container my-1">
           <Link to="/">← Back to Products</Link>
 
-          <h2 id="product-name">{currentProduct.name}</h2>
+          <div class="box">
+            <div>
+              
+            </div>
 
-          <p id="product-desc">{currentProduct.description}</p>
+            <div>
+              
+            </div>
 
-          <p id="price">
-            <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
-            <button
-              disabled={!cart.find((p) => p._id === currentProduct._id)}
-              onClick={removeFromCart}
-            >
-              Remove from Cart
-            </button>
-          </p>
+            <div>
+              
+            </div>
 
-          <img
-            src={`/images/${currentProduct.image}`}
-            alt={currentProduct.name}
-          />
+          </div>
+
+
+          
+
         </div>
+
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
       <Cart />
