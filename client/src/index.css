@@ -180,24 +180,20 @@ li {
 }
 
 #productListTitle {
-  /* color: #EDEDED; */
-  color: #171717;
+  color: #EDEDED;
   padding-left: 30px;
 }
 
 #productName {
-  /* color: #EDEDED; */
-  color: #171717;
+  color: #EDEDED;
 }
 
 #productStock {
-  /* color: #EDEDED; */
-  color: #171717;
+  color: #EDEDED;
 }
 
 #productPrice {
-  /* color: #EDEDED; */
-  color: #171717;
+  color: #EDEDED;
 }
 
 aside {
@@ -240,9 +236,6 @@ button[disabled] {
 
 img {
   max-width: 100%;
-<<<<<<< HEAD
-  background-color:#444444 ;
-=======
   max-height: 100%;
   margin-bottom: 65px;
   /* padding-top: 25px;
@@ -316,7 +309,6 @@ color: white;
 
 #currentproduct-image {
   height: 350px;
->>>>>>> c35dede4e5f9fd601d1fcd64db708ce454f34e24
 }
 
 span[role="img"] {
@@ -346,7 +338,7 @@ input:focus {
   height:50%;
   margin-left: 0;
   margin-right: 0;
-  /* background-color: var(--dark); */
+  background-color: var(--dark);
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 20px;
