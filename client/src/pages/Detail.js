@@ -109,7 +109,24 @@ function Detail() {
             </div>
 
             <div>
-              
+            <form class="comment-form">
+            <div class="fields">
+              <div class="name-form">
+                <label for="inputName">Name:</label>
+                <input type="text" placeholder="Name" required/>
+              </div>
+
+              <div class="text-form">
+                <label for="inputName">Comments:</label>
+                <textarea cols="45" rows="15" placeholder="Comment.." required></textarea>
+              </div>
+
+              <div class="button-form">
+                <button type="submit">Send message</button>
+              </div>
+
+            </div>
+          </form>
             </div>
 
           </div>
