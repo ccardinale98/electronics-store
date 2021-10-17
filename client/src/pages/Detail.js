@@ -98,6 +98,14 @@ function Detail() {
               <h2 id="product-name">{currentProduct.name}</h2>
 
               <p id="product-desc">{currentProduct.description}</p>
+
+              <p id="price">
+                <strong>Price:</strong>${currentProduct.price}{' '}
+                <button onClick={addToCart}>Add to Cart</button>
+
+                <button disabled={!cart.find((p) => p._id === currentProduct._id)}
+                onClick={removeFromCart} > Remove from Cart </button>
+              </p>
             </div>
 
             <div>
