@@ -6,7 +6,7 @@ import Bot from "../components/Bot";
 
 const Home = () => {
   return (
-    <div className="container">
+    <div className="container" id="home-div">
       <CategoryMenu />
       <ProductList />
       <Cart />

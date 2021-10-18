@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
+import Bot from '../components/Bot';
 import Cart from '../components/Cart';
 import { useStoreContext } from '../utils/GlobalState';
 import {
@@ -84,17 +84,17 @@ function Detail() {
   return (
     <>
       {currentProduct && cart ? (
-        <div className="container my-1">
-          <Link to="/">← Back to Products</Link>
+        <div className="container my-1" id="details-main">
+          <Link to="/">Home</Link>
 
           <div class="box">
-            <div>
+            <div id="details-image-div">
               <img id="currentproduct-image"
               src={currentProduct.image}
               alt={currentProduct.name} />
             </div>
 
-            <div>
+            <div id="details-desc-div">
               <h2 id="product-name">{currentProduct.name}</h2>
 
               <p id="product-desc">{currentProduct.description}</p>
@@ -112,7 +112,7 @@ function Detail() {
               </div>
             </div>
 
-            <div>
+            <div id="details-form-div">
               <form class="comment-form">
                 <div class="fields">
                   <div class="name-form">
@@ -140,6 +140,7 @@ function Detail() {
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
       <Cart />
+      <Bot />
     </>
   );
 }

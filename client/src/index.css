@@ -35,8 +35,9 @@
 
 #price {
   margin: 0;
-  padding: 50px;
-  padding-left: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  /* padding-left: 50px; */
   font-family: 'Karla', sans-serif;
   font-weight: 400;
   line-height: 1.5;
@@ -286,9 +287,26 @@ color: white;
 
 .box {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
   padding:50px;
   padding-bottom: 250px;
+  padding-left: 0px;
+  width: fit-content;
+}
+
+#details-image-div {
+  width: 20%;
+}
+
+#details-form-div {
+  width: 30%;
+  text-align: center;
+  padding-left: 30px;
+}
+
+#details-desc-div {
+  width: 50%;
 }
 
 #comment-form {
@@ -308,7 +326,8 @@ color: white;
 }
 
 #currentproduct-image {
-  height: 350px;
+  height: 300px;
+  width: 300px;
 }
 
 span[role="img"] {
@@ -497,7 +516,7 @@ input:focus {
 #chatBox {
   width: 200px;
   position: fixed;
-  bottom: 6%;
+  bottom: 7%;
 }
 
 #chat-box-main {
@@ -517,8 +536,7 @@ input:focus {
 
 #details-main {
   display: flex;
-  flex-direction: row;
-  margin-top: 40px;
+  flex-direction: column;
   width: fit-content;
 }
 
@@ -539,4 +557,9 @@ input:focus {
   display: flex;
   flex-direction: column;
   margin-left: 20px;
+}
+
+#home-div {
+  padding-top: 0px;
+  padding-left: 0px;
 }
