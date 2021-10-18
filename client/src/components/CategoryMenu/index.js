@@ -44,7 +44,7 @@ function CategoryMenu() {
   };
 
   return (
-    <aside>
+    <aside id="aside">
       <h2 id="selectCategory">Choose a Category:</h2>
       {categories.map((item) => (
         <button

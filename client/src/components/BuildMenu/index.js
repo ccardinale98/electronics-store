@@ -293,7 +293,7 @@ function BuildMenu() {
                         <p className="name-choose">{product.name}</p>
                         </Link>
                         <div>
-                        <span>${product.price}</span>
+                        <span id="build-choose-price">${product.price}</span>
                         </div>
                         {/* make add button att it to variables */}
                         <button onClick={() => addToList(product, product.category)}>Add to Build</button>
